@@ -4,8 +4,8 @@ management:
   metrics:
     export:
       newrelic:
-        api-key: // ADD
-        account-id: // ADD
+        api-key: //
+        account-id: //
         enabled: true
 spring:
   jmx:

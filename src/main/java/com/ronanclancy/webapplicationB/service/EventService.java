@@ -1,5 +1,6 @@
 package com.ronanclancy.webapplicationB.service;
 
+import com.ronanclancy.webapplicationB.utils.LogStackUtils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +9,9 @@ import org.springframework.stereotype.Service;
 public class EventService {
 
   public String getResults(Long eventId) {
-    log.info("Got results for event " + eventId);
+    LogStackUtils.logInfo("Got results for event " + eventId);
     if (eventId == 15000 || eventId == 18000) {
-      log.error("Something went wrong getting Event " + eventId);
-      throw new RuntimeException("simulate load error");
+      throw new RuntimeException("Something went wrong getting Event " + eventId);
     }
     return "results";
   }

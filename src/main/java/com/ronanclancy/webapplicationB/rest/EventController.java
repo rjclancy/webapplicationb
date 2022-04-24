@@ -2,6 +2,7 @@ package com.ronanclancy.webapplicationB.rest;
 
 import com.ronanclancy.webapplicationB.dto.EventResponse;
 import com.ronanclancy.webapplicationB.service.EventService;
+import com.ronanclancy.webapplicationB.utils.LogStackUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -19,11 +20,11 @@ public class EventController {
 
   @GetMapping("/event/{id}")
   ResponseEntity<EventResponse> getResults(@PathVariable final Long id) throws Exception {
-    log.info("Received events " + id);
+    LogStackUtils.logInfo("Received events " + id);
     try {
       return new ResponseEntity<>(new EventResponse(baseService.getResults(id)), HttpStatus.OK);
     } catch (Exception e) {
-      log.error("error getting results for event " + id);
+      LogStackUtils.logError("error getting results for event " + id, e);
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
