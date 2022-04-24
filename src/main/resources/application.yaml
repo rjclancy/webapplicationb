@@ -1,0 +1,12 @@
+server:
+  port: 8083
+management:
+  metrics:
+    export:
+      newrelic:
+        api-key: // ADD
+        account-id: // ADD
+        enabled: true
+spring:
+  jmx:
+    enabled: true
